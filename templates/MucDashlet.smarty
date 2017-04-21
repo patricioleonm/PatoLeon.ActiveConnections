@@ -1,0 +1,23 @@
+{if $is_root}
+   <table class="kt_collection" width="100%">
+   		<tr>
+   			<td><b>User Name</b></td>
+			<td><b>Name</b></td>
+			<td><b>Last login</b></td>
+			<td><b>IP</b></td>
+			<td><b>N° Sessions</b></td>
+			<td><b>{i18n}Action{/i18n}</b></td>
+   		</tr>
+		
+		{foreach from=$userlist key=key item=value}
+	    	<tr class="{$value.class}">
+				<td>{$value.username}</td>
+				<td>{$value.name}</td>
+				<td>{$value.last_login}</td>
+				<td>{$value.ip}</td>
+				<td>{$value.counter}</td>
+				<td><a href="plugins/PatoLeon.ActiveConnections/kill.php?id={$value.ses_id}">{i18n}Close{/i18n}</a></td>
+			</tr>
+		{/foreach}
+   </table>
+{/if}
